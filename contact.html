@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Stan Alcorn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 class="site-name"><a href="index.html" class="name-link">Stan Alcorn&#8230;</a></h1>
+    <nav class="main-nav">
+      <a href="audio.html">Audio</a>
+      <a href="writing.html">Writing</a>
+      <a href="video.html">Video</a>
+      <a href="etc.html">Etc.</a>
+      <a href="awards.html">Awards</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main class="contact-page">
+    <form id="contactForm">
+      <div class="contact-field">
+        <label for="contactName">Name</label>
+        <input type="text" id="contactName" class="contact-input" required>
+      </div>
+      <div class="contact-field">
+        <label for="contactEmail">Email</label>
+        <input type="email" id="contactEmail" class="contact-input" required>
+      </div>
+      <div class="contact-field">
+        <label for="contactMessage">Message</label>
+        <textarea id="contactMessage" class="contact-textarea" required></textarea>
+      </div>
+      <button type="submit" class="subscribe-btn">Send</button>
+      <p class="subscribe-msg" id="contactMsg" hidden></p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <h2 class="footer-heading">Sign up for my newsletter!</h2>
+      <p class="footer-sub">Receive news and surprises, infrequently.</p>
+      <form class="subscribe-form" id="subscribeForm">
+        <div class="subscribe-row">
+          <input type="email" id="subscribeEmail" placeholder="your@email.com" required class="subscribe-input">
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </div>
+        <p class="subscribe-msg" id="subscribeMsg" hidden></p>
+      </form>
+    </div>
+  </footer>
+  <script src="subscribe.js"></script>
+  <script src="contact.js"></script>
+</body>
+</html>
