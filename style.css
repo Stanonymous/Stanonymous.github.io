@@ -308,6 +308,10 @@ header {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .grid--1col {
   grid-template-columns: 1fr;
   max-width: 720px;
@@ -442,6 +446,11 @@ header {
   color: #333;
   margin-top: 0.5rem;
   margin-bottom: 0.65rem;
+}
+
+.grid-desc--award {
+  font-style: italic;
+  color: #666;
 }
 
 .player-placeholder {
