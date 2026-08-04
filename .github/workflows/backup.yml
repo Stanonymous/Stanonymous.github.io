@@ -1,0 +1,13 @@
+name: Daily Dropbox Backup
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  trigger-backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger backup on PythonAnywhere
+        run: curl -sf "https://stanonymous.pythonanywhere.com/run-backup?key=${{ secrets.BACKUP_KEY }}"
