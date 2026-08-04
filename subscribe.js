@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.disabled    = true;
     btn.textContent = 'Subscribing…';
 
-    fetch('/subscribe', {
+    fetch('https://stanonymous.pythonanywhere.com/subscribe', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ email: email })

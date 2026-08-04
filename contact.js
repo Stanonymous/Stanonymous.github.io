@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.disabled    = true;
     btn.textContent = 'Sending…';
 
-    fetch('/contact', {
+    fetch('https://stanonymous.pythonanywhere.com/contact', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ name: name, email: email, message: message })
