@@ -143,6 +143,7 @@ header {
   position: relative;
   align-self: stretch;
   overflow: hidden;
+  min-height: 202px;
 }
 
 .audio-intro-photo img {
@@ -318,7 +319,7 @@ header {
 }
 
 @media (max-width: 900px) {
-  .grid {
+  .grid:not(.grid--1col) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -361,10 +362,6 @@ header {
 
   .audio-intro-layout {
     grid-template-columns: 1fr;
-  }
-
-  .audio-intro-photo {
-    height: 220px;
   }
 
   .audio-intro {
