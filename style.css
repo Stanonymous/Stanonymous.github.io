@@ -499,6 +499,12 @@ header {
   .etc-item {
     grid-template-columns: 1fr;
   }
+
+  .etc-photo {
+    height: 320px;
+    object-fit: cover;
+    object-position: center 20%;
+  }
 }
 
 /* ── Contact page ── */
