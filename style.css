@@ -8,10 +8,12 @@
   --black: #111111;
   --white: #f8f6f1;
   --rule: #cccccc;
-}
-
-html, body {
-  height: 100%;
+  --accent: #c0392b;
+  --accent-dark: #a93226;
+  /* Lightest grey that still clears WCAG AA (4.5:1) on --white and on the
+     article's yellow zone. Anything lighter fails the contrast checker. */
+  --muted: #6b6b6b;
+  --body-dim: #333333;
 }
 
 body {
@@ -20,6 +22,58 @@ body {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 18px;
   line-height: 1.5;
+}
+
+/* ── Accessibility helpers ── */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transform: translateY(-150%);
+  background: var(--black);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* One visible focus ring for every interactive element. Individual components
+   below must not set `outline: none` — that leaves keyboard users stranded. */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ── Header ── */
@@ -41,7 +95,7 @@ header {
 .name-link {
   color: inherit;
   text-decoration: none;
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, opacity 0.15s ease;
 }
 
 .name-link:hover {
@@ -50,7 +104,7 @@ header {
 }
 
 .name-link.active {
-  color: #c0392b;
+  color: var(--accent);
   opacity: 1;
 }
 
@@ -91,7 +145,7 @@ header {
 }
 
 .main-nav a.active {
-  color: #c0392b;
+  color: var(--accent);
   opacity: 1;
 }
 
@@ -107,6 +161,7 @@ header {
 
 .home-photo .portrait {
   width: 100%;
+  height: auto;
   display: block;
   object-fit: cover;
 }
@@ -125,7 +180,7 @@ header {
   margin-bottom: 0;
 }
 
-/* ── Audio page ── */
+/* ── Section pages (audio, writing, video, etc.) ── */
 
 .audio-page {
   padding: 2.5rem 3rem;
@@ -157,17 +212,9 @@ header {
   display: block;
 }
 
-.audio-intro-photo--natural {
-  position: static;
-  overflow: visible;
-  align-self: start;
-}
-
-.audio-intro-photo--natural img {
-  position: static;
-  height: auto;
-  object-fit: initial;
-}
+/* Per-page focal points, previously inline `style` attributes. */
+.audio-intro-photo--desk img  { object-position: center 52%; }
+.audio-intro-photo--video img { object-position: center 20%; }
 
 .audio-intro {
   font-size: 1.3rem;
@@ -193,7 +240,7 @@ header {
   line-height: 1;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #c0392b;
+  color: var(--accent);
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
   border-bottom: 1.5px solid var(--black);
@@ -220,7 +267,6 @@ header {
 .carousel-item {
   flex-shrink: 0;
   padding-right: 1.25rem;
-  box-sizing: border-box;
 }
 
 .carousel-item:last-child {
@@ -234,7 +280,6 @@ header {
   padding-bottom: 56.25%; /* 9/16 — height driven by CSS, never by image */
   overflow: hidden;
   margin-bottom: 0.6rem;
-  outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -256,15 +301,24 @@ header {
 .carousel-btn {
   background: none;
   border: none;
-  font-size: 1.4rem;
   cursor: pointer;
   color: var(--black);
+  /* 44px min target — pointer-accessible on touch screens */
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.5rem 0.6rem;
-  line-height: 1;
-  margin-top: 4.5rem;
+  margin-top: 4rem;
   transition: opacity 0.15s;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+}
+
+.carousel-icon {
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .carousel-btn:hover {
@@ -293,7 +347,7 @@ header {
 
 .caption-role {
   font-size: 0.78rem;
-  color: #666;
+  color: var(--muted);
   letter-spacing: 0.02em;
 }
 
@@ -318,63 +372,6 @@ header {
   max-width: 720px;
 }
 
-@media (max-width: 900px) {
-  .grid:not(.grid--1col) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 720px) {
-  header {
-    padding: 1.5rem 1.25rem 0;
-  }
-
-  .main-nav {
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 0.4rem 0;
-    gap: 0.3rem 0;
-  }
-
-  .main-nav a {
-    flex: 0 0 33.33%;
-    text-align: center;
-    border-left: none;
-    margin-left: 0;
-    padding-left: 0;
-    font-size: 0.75rem;
-    letter-spacing: 0.07em;
-  }
-
-  .main-nav a:first-child {
-    padding-left: 0;
-  }
-
-  .home-layout {
-    grid-template-columns: 1fr;
-    padding: 1.5rem 1.25rem;
-    gap: 1.5rem;
-  }
-
-  .audio-page {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .audio-intro-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .audio-intro {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 580px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .grid-img-link {
   display: block;
   position: relative;
@@ -382,7 +379,6 @@ header {
   padding-bottom: 100%; /* 1:1 square — height driven by CSS, never by image */
   overflow: hidden;
   margin-bottom: 0.65rem;
-  outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -399,6 +395,19 @@ header {
 
 .grid-img-link:hover .grid-img {
   opacity: 0.8;
+}
+
+/* A full-bleed image that keeps its own aspect ratio inside a grid item. */
+.grid-media {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.story-player {
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
 /* ── YouTube / video responsive wrapper ── */
@@ -434,38 +443,20 @@ header {
 
 .grid-desc a:hover,
 .audio-intro a:hover {
-  color: #c0392b;
+  color: var(--accent);
 }
 
 .grid-desc {
   font-size: 0.9rem;
   line-height: 1.55;
-  color: #333;
+  color: var(--body-dim);
   margin-top: 0.5rem;
   margin-bottom: 0.65rem;
 }
 
 .grid-desc--award {
   font-style: italic;
-  color: #666;
-}
-
-.player-placeholder {
-  background: #e8e4dc;
-  border: 1px dashed #aaa;
-  color: #888;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-/* ── Placeholder images ── */
-
-.placeholder-img {
-  background: #d9d4c9;
+  color: var(--muted);
 }
 
 /* ── Bio links ── */
@@ -476,7 +467,7 @@ header {
 }
 
 .home-bio a:hover {
-  color: #c0392b;
+  color: var(--accent);
 }
 
 /* ── Etc. page ── */
@@ -493,18 +484,6 @@ header {
   height: auto;
   display: block;
   order: -1;
-}
-
-@media (max-width: 768px) {
-  .etc-item {
-    grid-template-columns: 1fr;
-  }
-
-  .etc-photo {
-    height: 320px;
-    object-fit: cover;
-    object-position: center 20%;
-  }
 }
 
 /* ── Contact page ── */
@@ -535,7 +514,7 @@ header {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #666;
+  color: var(--muted);
 }
 
 .contact-input,
@@ -543,27 +522,20 @@ header {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 1.1rem;
   padding: 0.6rem 0.75rem;
-  border: 1.5px solid #ccc;
+  border: 1.5px solid var(--rule);
   background: #fff;
   color: var(--black);
-  outline: none;
   width: 100%;
 }
 
 .contact-input:focus,
 .contact-textarea:focus {
-  border-color: #c0392b;
+  border-color: var(--accent);
 }
 
 .contact-textarea {
   resize: vertical;
   min-height: 100px;
-}
-
-@media (max-width: 640px) {
-  .contact-page {
-    padding: 1.5rem 1.25rem 3rem;
-  }
 }
 
 /* ── Awards page ── */
@@ -610,7 +582,7 @@ header {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: #999;
+  color: var(--muted);
   min-width: 2.5rem;
   flex-shrink: 0;
 }
@@ -621,27 +593,21 @@ header {
 }
 
 .award-entry a:hover {
-  color: #c0392b;
+  color: var(--accent);
 }
 
 .award-note {
   font-size: 0.85rem;
-  color: #888;
+  color: var(--muted);
   font-style: italic;
   margin-left: 0.25rem;
-}
-
-@media (max-width: 640px) {
-  .awards-page {
-    padding: 1.5rem 1.25rem 3rem;
-  }
 }
 
 /* ── Site footer / email signup ── */
 
 .site-footer {
-  background: #111;
-  color: #f8f6f1;
+  background: var(--black);
+  color: var(--white);
   padding: 4.5rem 3rem 4rem;
   margin-top: 4rem;
 }
@@ -680,22 +646,22 @@ header {
   background: #1e1e1e;
   border: 1.5px solid #444;
   border-right: none;
-  color: #f8f6f1;
-  outline: none;
+  color: var(--white);
   min-width: 0;
 }
 
 .subscribe-input::placeholder {
-  color: #666;
+  color: #999;   /* 5.9:1 on #1e1e1e — #666 failed the contrast checker */
+  opacity: 1;
 }
 
 .subscribe-input:focus {
-  border-color: #c0392b;
+  border-color: var(--accent);
 }
 
 .subscribe-btn {
   padding: 0.8rem 1.5rem;
-  background: #c0392b;
+  background: var(--accent);
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-size: 0.8rem;
@@ -709,7 +675,7 @@ header {
 }
 
 .subscribe-btn:hover {
-  background: #a93226;
+  background: var(--accent-dark);
 }
 
 .subscribe-btn:disabled {
@@ -728,25 +694,6 @@ header {
 
 .subscribe-msg--error {
   color: #e74c3c;
-}
-
-@media (max-width: 640px) {
-  .site-footer {
-    padding: 3rem 1.25rem 2.5rem;
-  }
-
-  .subscribe-row {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .subscribe-input {
-    border-right: 1.5px solid #444;
-  }
-
-  .subscribe-input:focus {
-    border-color: #c0392b;
-  }
 }
 
 /* ── Article page ── */
@@ -777,7 +724,7 @@ header {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #c0392b;
+  color: var(--accent);
   margin-bottom: 0.75rem;
 }
 
@@ -794,7 +741,7 @@ header {
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #666;
+  color: var(--muted);
   margin-bottom: 1.25rem;
 }
 
@@ -812,6 +759,7 @@ header {
 
 .article-hero img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -819,13 +767,13 @@ header {
   font-size: 0.72rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #999;
+  color: var(--muted);
   text-align: right;
   margin-bottom: 3rem;
 }
 
 .article-hero-credit a {
-  color: #999;
+  color: var(--muted);
   text-underline-offset: 2px;
 }
 
@@ -846,15 +794,15 @@ header {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #c0392b;
+  color: var(--accent);
   margin: 3rem 0 1.25rem;
   padding-bottom: 0.5rem;
   border-bottom: 1.5px solid var(--black);
 }
 
 .article-body blockquote {
-  border-left: 3px solid #c0392b;
-  margin: 2.5rem 0 2.5rem 0;
+  border-left: 3px solid var(--accent);
+  margin: 2.5rem 0;
   padding: 0.25rem 0 0.25rem 1.75rem;
   font-size: 1.25rem;
   font-style: italic;
@@ -868,38 +816,110 @@ header {
 }
 
 .article-body a:hover {
-  color: #c0392b;
+  color: var(--accent);
 }
 
 .article-embed {
   margin: 2rem 0;
 }
 
+/* The PRX player injects an iframe with a fixed pixel width in an inline
+   style, which overflows the viewport on phones — !important is the only way
+   to override a third-party inline style we don't control. */
 .article-embed iframe {
   display: block;
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.soundcloud-embed {
   width: 100%;
+  border: 0;
 }
 
-.article-footer-bio {
-  max-width: 720px;
-  margin: 4rem auto 0;
-  padding-top: 1.5rem;
-  border-top: 1.5px solid var(--black);
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #444;
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+  .grid:not(.grid--1col) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.article-footer-bio a {
-  color: var(--black);
-  text-underline-offset: 3px;
+@media (max-width: 768px) {
+  .etc-item {
+    grid-template-columns: 1fr;
+  }
+
+  .etc-photo {
+    height: 320px;
+    object-fit: cover;
+    object-position: center 20%;
+  }
 }
 
-.article-footer-bio a:hover {
-  color: #c0392b;
+@media (max-width: 720px) {
+  header {
+    padding: 1.5rem 1.25rem 0;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0.4rem 0;
+    gap: 0.3rem 0;
+  }
+
+  .main-nav a {
+    flex: 0 0 33.33%;
+    text-align: center;
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+  }
+
+  .home-layout {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .audio-page {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .audio-intro-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .audio-intro {
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 640px) {
+  .contact-page {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+
+  .awards-page {
+    padding: 1.5rem 1.25rem 3rem;
+  }
+
+  .site-footer {
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .subscribe-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .subscribe-input {
+    border-right: 1.5px solid #444;
+  }
+
   .article-page {
     padding: 1.5rem 1.25rem 3rem;
   }
@@ -908,5 +928,21 @@ header {
     font-size: 1.1rem;
     margin: 2rem 0;
     padding-left: 1.25rem;
+  }
+}
+
+@media (max-width: 580px) {
+  /* Must match the specificity of the 900px rule above (`.grid:not(...)`,
+     0-2-0) or it loses the cascade regardless of source order — which is why
+     story grids stayed two-up on phones. */
+  .grid:not(.grid--1col) {
+    grid-template-columns: 1fr;
+  }
+
+  /* Exception: the New Shows row is square podcast artwork, not stories.
+     Full-bleed covers stack into a very long scroll, so keep those two-up.
+     `.grid.grid--4col` to match 0-2-0 specificity, same reason as above. */
+  .grid.grid--4col {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

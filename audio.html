@@ -4,16 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Audio — Stan Alcorn</title>
+  <meta name="description" content="Award-winning audio stories and narrative documentaries by Stan Alcorn for NPR, Marketplace, the BBC, Reveal, 99% Invisible and Radio Ambulante Studios.">
+  <meta name="author" content="Stan Alcorn">
+  <link rel="canonical" href="https://stanalcorn.com/audio.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Stan Alcorn">
+  <meta property="og:title" content="Audio — Stan Alcorn">
+  <meta property="og:description" content="Award-winning audio stories and narrative documentaries by Stan Alcorn for NPR, Marketplace, the BBC, Reveal, 99% Invisible and Radio Ambulante Studios.">
+  <meta property="og:url" content="https://stanalcorn.com/audio.html">
+  <meta property="og:image" content="https://stanalcorn.com/TedPortrait.jpg">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="favicon.ico?v=2" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=EB+Garamond:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=EB+Garamond:wght@400;500&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=EB+Garamond:wght@400;500&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header>
-    <h1 class="site-name"><a href="index.html" class="name-link">Stan Alcorn</a></h1>
-    <nav class="main-nav">
-      <a href="audio.html" class="active">Audio</a>
+    <p class="site-name"><a href="index.html" class="name-link">Stan Alcorn</a></p>
+    <nav class="main-nav" aria-label="Main">
+      <a href="audio.html" class="active" aria-current="page">Audio</a>
       <a href="writing.html">Writing</a>
       <a href="video.html">Video</a>
       <a href="etc.html">Etc.</a>
@@ -22,30 +41,35 @@
     </nav>
   </header>
 
-  <main class="audio-page">
+  <main class="audio-page" id="main">
+    <h1 class="visually-hidden">Audio</h1>
 
     <div class="audio-intro-layout">
       <div class="audio-intro-photo">
-        <img src="cropped%20anchicaya%20interview.JPG" alt="Stan Alcorn reporting">
+        <img src="cropped%20anchicaya%20interview.JPG" width="1166" height="1200"
+             alt="Stan Alcorn holding a microphone during an interview in the Anchicayá valley"
+             fetchpriority="high" decoding="async">
       </div>
       <div class="audio-intro">
         <p>For the last fifteen years, Stan has been reporting and producing audio stories for local, national, and international news; launching, shaping, editing, and sound designing new shows; and teaching writing and story structure to audio novices. He specializes in turning complicated investigations into <a href="#highlights">compelling narrative documentaries</a> that have real-world impact and win <a href="awards.html">awards</a>.</p>
-        <p>Along the way, Stan wrote a surprisingly influential article about <a href="http://localhost:3000/why-audio-never-goes-viral.html">why audio doesn't go viral</a>, and also gave a significantly less influential talk about <a href="https://www.thirdcoastfestival.org/feature/2018-provocations">why radio storytelling is, in fact, bad</a>.</p>
-        <p>Recently, he has reported and produced from Latin America for NPR, Marketplace, the BBC, and Radio Ambulante Studios' <a href="https://centralpodcast.audio/temporadas/la-ruta-del-sol/" target="_blank">La Ruta del Sol</a>: a Spanish-language investigative series about the death of a whistleblower in an international bribery scandal. Before that, Stan was a senior reporter and producer at <a href="https://revealnews.org/author/stan-alcorn/" target="_blank">Reveal from the Center for Investigative Reporting</a>.</p>
+        <p>Along the way, Stan wrote a surprisingly influential article about <a href="why-audio-never-goes-viral.html">why audio doesn't go viral</a>, and also gave a significantly less influential talk about <a href="https://www.thirdcoastfestival.org/feature/2018-provocations" target="_blank" rel="noopener">why radio storytelling is, in fact, bad</a>.</p>
+        <p>Recently, he has reported and produced from Latin America for NPR, Marketplace, the BBC, and Radio Ambulante Studios' <a href="https://centralpodcast.audio/temporadas/la-ruta-del-sol/" target="_blank" rel="noopener"><span lang="es">La Ruta del Sol</span></a>: a Spanish-language investigative series about the death of a whistleblower in an international bribery scandal. Before that, Stan was a senior reporter and producer at <a href="https://revealnews.org/author/stan-alcorn/" target="_blank" rel="noopener">Reveal from the Center for Investigative Reporting</a>.</p>
       </div>
     </div>
 
     <!-- RECENT -->
-    <section class="audio-section">
-      <h2 class="section-heading">Recent</h2>
+    <section class="audio-section" aria-labelledby="recent-heading">
+      <h2 class="section-heading" id="recent-heading">Recent</h2>
       <div class="carousel-wrapper">
-        <button class="carousel-btn carousel-btn--prev" aria-label="Previous">&#8592;</button>
+        <button type="button" class="carousel-btn carousel-btn--prev" aria-label="Previous stories" aria-controls="carouselTrack">
+          <svg class="carousel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 4 7 12l8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
         <div class="carousel-viewport">
           <div class="carousel-track" id="carouselTrack">
 
             <div class="carousel-item">
-              <a href="https://www.bbc.com/audio/play/w3ct9866" target="_blank" class="carousel-img-link">
-                <img src="bbc-carbon-offset.jpg" alt="The First Carbon Offset" class="carousel-img">
+              <a href="https://www.bbc.com/audio/play/w3ct9866" target="_blank" class="carousel-img-link" rel="noopener">
+                <img src="bbc-carbon-offset.jpg" alt="The First Carbon Offset" class="carousel-img" width="1200" height="675" loading="lazy" decoding="async">
               </a>
               <div class="item-caption">
                 <span class="caption-pub">BBC's Witness History</span>
@@ -55,19 +79,19 @@
             </div>
 
             <div class="carousel-item">
-              <a href="https://centralpodcast.audio/temporadas/la-ruta-del-sol/" target="_blank" class="carousel-img-link">
-                <img src="https://centralpodcast.audio/wp-content/uploads/2025/12/LRDS_Tile-Episodios-600x599_LRDS_Tile-EP8.jpg" alt="La Ruta del Sol" class="carousel-img">
+              <a href="https://centralpodcast.audio/temporadas/la-ruta-del-sol/" target="_blank" class="carousel-img-link" rel="noopener">
+                <img src="https://centralpodcast.audio/wp-content/uploads/2025/12/LRDS_Tile-Episodios-600x599_LRDS_Tile-EP8.jpg" alt="La Ruta del Sol" lang="es" class="carousel-img" loading="lazy" decoding="async">
               </a>
               <div class="item-caption">
                 <span class="caption-pub">Radio Ambulante Studios</span>
-                <span class="caption-title">La Ruta del Sol</span>
+                <span class="caption-title" lang="es">La Ruta del Sol</span>
                 <span class="caption-role">Reporter and Producer</span>
               </div>
             </div>
 
             <div class="carousel-item">
-              <a href="https://www.npr.org/2024/12/20/1220579265/biodiversity-credit-spectacled-bear-colombia" target="_blank" class="carousel-img-link">
-                <img src="https://media.npr.org/assets/img/2024/12/20/pm-episode-art-45-_wide-60c4b066c09ab92fce73b5b3a70b7365dcc7ede7.jpg?s=1600&c=85&f=webp" alt="Habitat Banker" class="carousel-img">
+              <a href="https://www.npr.org/2024/12/20/1220579265/biodiversity-credit-spectacled-bear-colombia" target="_blank" class="carousel-img-link" rel="noopener">
+                <img src="https://media.npr.org/assets/img/2024/12/20/pm-episode-art-45-_wide-60c4b066c09ab92fce73b5b3a70b7365dcc7ede7.jpg?s=1600&c=85&f=webp" alt="Habitat Banker" class="carousel-img" loading="lazy" decoding="async">
               </a>
               <div class="item-caption">
                 <span class="caption-pub">NPR's Planet Money</span>
@@ -77,19 +101,19 @@
             </div>
 
             <div class="carousel-item">
-              <a href="https://open.spotify.com/episode/5cQwOje4NwyuBk4JiKfoyA" target="_blank" class="carousel-img-link">
-                <img src="Deliberante%20cover.png" alt="La Decisión de una Corte sin Casos" class="carousel-img">
+              <a href="https://open.spotify.com/episode/5cQwOje4NwyuBk4JiKfoyA" target="_blank" class="carousel-img-link" rel="noopener">
+                <img src="Deliberante%20cover.jpg" alt="La Decisión de una Corte sin Casos" lang="es" class="carousel-img" loading="lazy" decoding="async">
               </a>
               <div class="item-caption">
                 <span class="caption-pub">Deliberante</span>
-                <span class="caption-title">La Decisión de una Corte sin Casos</span>
+                <span class="caption-title" lang="es">La Decisión de una Corte sin Casos</span>
                 <span class="caption-role">Editor and Sound Designer</span>
               </div>
             </div>
 
             <div class="carousel-item">
-              <a href="https://www.npr.org/2023/06/30/1185313253/poison-dart-frog-black-market-smuggling" target="_blank" class="carousel-img-link">
-                <img src="https://media.npr.org/assets/img/2023/06/30/poison-dart-frog-oophaga-lehmanni-valley-of-achicaya-reserva-la-hacienda-el-placer-dagua-valle-del-cauca-colombia-charlotte-de-beauvoir-7149c71c69c076443a30b291a1de99ebff5206a0.jpg?s=1600&c=85&f=webp" alt="Supply, Demand, Extinction" class="carousel-img">
+              <a href="https://www.npr.org/2023/06/30/1185313253/poison-dart-frog-black-market-smuggling" target="_blank" class="carousel-img-link" rel="noopener">
+                <img src="https://media.npr.org/assets/img/2023/06/30/poison-dart-frog-oophaga-lehmanni-valley-of-achicaya-reserva-la-hacienda-el-placer-dagua-valle-del-cauca-colombia-charlotte-de-beauvoir-7149c71c69c076443a30b291a1de99ebff5206a0.jpg?s=1600&c=85&f=webp" alt="Supply, Demand, Extinction" class="carousel-img" loading="lazy" decoding="async">
               </a>
               <div class="item-caption">
                 <span class="caption-pub">NPR's Planet Money</span>
@@ -99,8 +123,8 @@
             </div>
 
             <div class="carousel-item">
-              <a href="https://www.marketplace.org/story/2023/06/06/is-birding-tourism-in-colombia-finally-ready-to-take-flight" target="_blank" class="carousel-img-link">
-                <img src="https://img.apmcdn.org/10e638fd289a1c2843466134bf1b1c52c761baa0/uncropped/8d81d1-2023-05-andean-motmot-e1683648224202-webp1200.webp" alt="Birding in Colombia" class="carousel-img">
+              <a href="https://www.marketplace.org/story/2023/06/06/is-birding-tourism-in-colombia-finally-ready-to-take-flight" target="_blank" class="carousel-img-link" rel="noopener">
+                <img src="https://img.apmcdn.org/10e638fd289a1c2843466134bf1b1c52c761baa0/uncropped/8d81d1-2023-05-andean-motmot-e1683648224202-webp1200.webp" alt="Birding in Colombia" class="carousel-img" loading="lazy" decoding="async">
               </a>
               <div class="item-caption">
                 <span class="caption-pub">Marketplace</span>
@@ -110,8 +134,8 @@
             </div>
 
             <div class="carousel-item">
-              <a href="https://theworld.org/segments/2025/12/22/rock-climbing-on-the-rise-in-colombia" target="_blank" class="carousel-img-link">
-                <img src="https://theworld.org/_next/image?url=https%3A%2F%2Fmedia.pri.org%2Fs3fs-public%2Fuploads%2F2025%2F12%2FDSCN6256-1024x768.jpg&w=1920&q=75" alt="Rock Climbing in Colombia" class="carousel-img">
+              <a href="https://theworld.org/segments/2025/12/22/rock-climbing-on-the-rise-in-colombia" target="_blank" class="carousel-img-link" rel="noopener">
+                <img src="https://theworld.org/_next/image?url=https%3A%2F%2Fmedia.pri.org%2Fs3fs-public%2Fuploads%2F2025%2F12%2FDSCN6256-1024x768.jpg&w=1920&q=75" alt="Rock Climbing in Colombia" class="carousel-img" loading="lazy" decoding="async">
               </a>
               <div class="item-caption">
                 <span class="caption-pub">The World</span>
@@ -122,18 +146,20 @@
 
           </div>
         </div>
-        <button class="carousel-btn carousel-btn--next" aria-label="Next">&#8594;</button>
+        <button type="button" class="carousel-btn carousel-btn--next" aria-label="Next stories" aria-controls="carouselTrack">
+          <svg class="carousel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
     </section>
 
     <!-- HIGHLIGHTS -->
-    <section class="audio-section" id="highlights">
-      <h2 class="section-heading">Highlights</h2>
+    <section class="audio-section" id="highlights" aria-labelledby="highlights-heading">
+      <h2 class="section-heading" id="highlights-heading">Highlights</h2>
       <div class="grid">
 
         <div class="grid-item">
-          <a href="https://revealnews.org/podcast/trial-and-terror/" target="_blank" class="grid-img-link">
-            <img src="https://i0.wp.com/revealnews.org/wp-content/uploads/2017/06/terror_art.jpg?w=1154&ssl=1" alt="Trial and Terror" class="grid-img">
+          <a href="https://revealnews.org/podcast/trial-and-terror/" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="https://i0.wp.com/revealnews.org/wp-content/uploads/2017/06/terror_art.jpg?w=1154&ssl=1" alt="Trial and Terror" class="grid-img" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Reveal</span>
@@ -141,31 +167,31 @@
             <span class="caption-role">Reporter and Producer</span>
           </div>
           <p class="grid-desc">How the US government misses the deadly threat of rightwing extremism, with the Investigative Fund's David Neiwert.</p>
-          <p class="grid-desc grid-desc--award">Finalist, <a href="https://wallacehouse.umich.edu/2018-livingston-award-finalists-announced/" target="_blank">Livingston Award for Young Journalists</a>, National Reporting.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <p class="grid-desc grid-desc--award">Finalist, <a href="https://wallacehouse.umich.edu/2018-livingston-award-finalists-announced/" target="_blank" rel="noopener">Livingston Award for Young Journalists</a>, National Reporting.</p>
+          <audio controls class="story-player" preload="none" aria-label="Listen: Trial and Terror">
             <source src="https://dl.dropboxusercontent.com/scl/fi/gu6oueqws1fgady8xbu1m/TrialAndTerror.mp3?rlkey=0chd6vcux8vxhtpodq8sttyrj&dl=1" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="grid-item">
-          <a href="https://99percentinvisible.org/episode/onates-foot/" target="_blank" class="grid-img-link">
-            <img src="https://99percentinvisible.org/wp-content/uploads/2018/12/photo-of-clay-replica-of-stolen-foot-on-display-at-site-santa-fe-e1543860905906-728x546.jpg" alt="Monumental Lies / Oñate's Foot" class="grid-img">
+          <a href="https://99percentinvisible.org/episode/onates-foot/" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="https://99percentinvisible.org/wp-content/uploads/2018/12/photo-of-clay-replica-of-stolen-foot-on-display-at-site-santa-fe-e1543860905906-728x546.jpg" alt="Monumental Lies / Oñate's Foot" class="grid-img" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Reveal / 99% Invisible</span>
             <span class="caption-title">Monumental Lies / Oñate's Foot</span>
             <span class="caption-role">Reporter and Producer</span>
           </div>
-          <p class="grid-desc">A fight over how we remeber "The Last Conquistador."</p>
-          <p class="grid-desc grid-desc--award">Winner of a <a href="http://www.peabodyawards.com/award-profile/monumental-lies" target="_blank">Peabody Award</a>, an <a href="https://awards.journalists.org/entries/monumental-lies/" target="_blank">Online Journalism Award</a> for Excellence in Audio Digital Storytelling, and an <a href="https://www.nabj.org/news/465312/2019-STE-Winners-Photojournalism-Podcasts-Magazine-PR--Marketing.htm" target="_blank">NABJ Salute to Excellence Award</a>.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <p class="grid-desc">A fight over how we remember "The Last Conquistador."</p>
+          <p class="grid-desc grid-desc--award">Winner of a <a href="https://peabodyawards.com/award-profile/monumental-lies/" target="_blank" rel="noopener">Peabody Award</a>, an <a href="https://awards.journalists.org/entries/monumental-lies/" target="_blank" rel="noopener">Online Journalism Award</a> for Excellence in Audio Digital Storytelling, and an <a href="https://web.archive.org/web/20190824001801/https://www.nabj.org/news/465312/2019-STE-Winners-Photojournalism-Podcasts-Magazine-PR--Marketing.htm" target="_blank" rel="noopener">NABJ Salute to Excellence Award</a>.</p>
+          <audio controls class="story-player" preload="none" aria-label="Listen: Monumental Lies / Oñate's Foot">
             <source src="https://dl.dropboxusercontent.com/scl/fi/mm3scr8vkvdd4abrnhcaq/onates_foot.mp3?rlkey=ye70ofb2m43i8wc5d6iqu68k5&dl=1" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="grid-item">
-          <a href="https://revealnews.org/podcast/deadly-waters/" target="_blank" class="grid-img-link">
-            <img src="https://i0.wp.com/revealnews.org/wp-content/uploads/2017/02/1-306-Ship-show.jpg?w=3000&ssl=1" alt="Deadly Waters" class="grid-img">
+          <a href="https://revealnews.org/podcast/deadly-waters/" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="https://i0.wp.com/revealnews.org/wp-content/uploads/2017/02/1-306-Ship-show.jpg?w=3000&ssl=1" alt="Deadly Waters" class="grid-img" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Reveal</span>
@@ -173,15 +199,15 @@
             <span class="caption-role">Producer</span>
           </div>
           <p class="grid-desc">The dangerous shipyards that supply the U.S. Navy, with CIR's Jennifer Gollan.</p>
-          <p class="grid-desc grid-desc--award">Finalist, <a href="https://awards.journalists.org/entries/lax-safety-at-the-shipyards/" target="_blank">Online News Association's Al Neuharth Innovation in Investigative Journalism Award</a>.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <p class="grid-desc grid-desc--award">Finalist, <a href="https://awards.journalists.org/entries/lax-safety-at-the-shipyards/" target="_blank" rel="noopener">Online News Association's Al Neuharth Innovation in Investigative Journalism Award</a>.</p>
+          <audio controls class="story-player" preload="none" aria-label="Listen: Deadly Waters">
             <source src="https://dl.dropboxusercontent.com/scl/fi/jwq5e7gsvrv3kneqdux6e/Deadly_Waters.mp3?rlkey=dsjdu504xor0zq5au1j26ogkh&dl=1" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="grid-item">
-          <a href="https://revealnews.org/podcast/up-against-the-wall/" target="_blank" class="grid-img-link">
-            <img src="https://i0.wp.com/revealnews.org/wp-content/uploads/2017/03/wall-epi-art-780x440.png?w=740&ssl=1" alt="Up Against the Wall" class="grid-img">
+          <a href="https://revealnews.org/podcast/up-against-the-wall/" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="https://i0.wp.com/revealnews.org/wp-content/uploads/2017/03/wall-epi-art-780x440.png?w=740&ssl=1" alt="Up Against the Wall" class="grid-img" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Reveal</span>
@@ -189,15 +215,15 @@
             <span class="caption-role">Reporter and Producer</span>
           </div>
           <p class="grid-desc">What the disappearance of Rick Garay says about U.S. border policy.</p>
-          <p class="grid-desc grid-desc--award">Winner, <a href="https://awards.journalists.org/entries/the-wall/" target="_blank">Online News Association's award for Excellence in Audio Digital Storytelling</a> and <a href="https://bestofthewestcontest.org/2018-contest-results/" target="_blank">Best of the West Awards, 1st Place, Podcast</a>.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <p class="grid-desc grid-desc--award">Winner, <a href="https://awards.journalists.org/entries/the-wall/" target="_blank" rel="noopener">Online News Association's award for Excellence in Audio Digital Storytelling</a> and <a href="https://bestofthewestcontest.org/2018-contest-results/" target="_blank" rel="noopener">Best of the West Awards, 1st Place, Podcast</a>.</p>
+          <audio controls class="story-player" preload="none" aria-label="Listen: Up Against the Wall">
             <source src="https://dl.dropboxusercontent.com/scl/fi/1sr9mcv6bv9bywvtrmpo0/AgainstTheWall.mp3?rlkey=iuaddb7q1pvqqymntnb4kqlm5&dl=1" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="grid-item">
-          <a href="https://99percentinvisible.org/episode/nut-behind-wheel/" target="_blank" class="grid-img-link">
-            <img src="https://99percentinvisible.org/wp-content/uploads/2017/12/car-crash-hit.jpg" alt="The Nut Behind the Wheel" class="grid-img">
+          <a href="https://99percentinvisible.org/episode/nut-behind-wheel/" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="https://99percentinvisible.org/wp-content/uploads/2017/12/car-crash-hit.jpg" alt="The Nut Behind the Wheel" class="grid-img" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Reveal / 99% Invisible</span>
@@ -206,14 +232,14 @@
           </div>
           <p class="grid-desc">Crash data led to car safety, but what about guns?</p>
           <p class="grid-desc grid-desc--award">Taught in public health classrooms at Columbia and Georgetown.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <audio controls class="story-player" preload="none" aria-label="Listen: The Nut Behind the Wheel">
             <source src="https://dl.dropboxusercontent.com/scl/fi/w9jgmz2wc0uo0tlnwfafi/NutBehindtheWheel.mp3?rlkey=7tjvy8us2821rxxgvgmiu2etz&dl=1" type="audio/mpeg">
           </audio>
         </div>
 
         <div class="grid-item">
-          <a href="https://revealnews.org/podcast/the-secret-list-of-convicted-cops/" target="_blank" class="grid-img-link">
-            <img src="https://i0.wp.com/revealnews.org/wp-content/uploads/2019/10/ConvictedCops.jpg?w=2000&ssl=1" alt="The Secret List of Convicted Cops" class="grid-img">
+          <a href="https://revealnews.org/podcast/the-secret-list-of-convicted-cops/" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="https://i0.wp.com/revealnews.org/wp-content/uploads/2019/10/ConvictedCops.jpg?w=2000&ssl=1" alt="The Secret List of Convicted Cops" class="grid-img" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Reveal</span>
@@ -221,8 +247,8 @@
             <span class="caption-role">Reporter and Producer</span>
           </div>
           <p class="grid-desc">A collaboration with the Bay Area News Group, the Investigative Reporting Program, and newsrooms across California.</p>
-          <p class="grid-desc grid-desc--award">Winner, <a href="https://journalism.berkeley.edu/irp-wins-investigative-reporting-public-service-award-from-society-of-professional-journalists/" target="_blank">SPJ NorCal Award for Investigative Reporting</a>.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <p class="grid-desc grid-desc--award">Winner, <a href="https://journalism.berkeley.edu/irp-wins-investigative-reporting-public-service-award-from-society-of-professional-journalists/" target="_blank" rel="noopener">SPJ NorCal Award for Investigative Reporting</a>.</p>
+          <audio controls class="story-player" preload="none" aria-label="Listen: The Secret List of Convicted Cops">
             <source src="https://dl.dropboxusercontent.com/scl/fi/rnc4giweo6au60juguskr/Alcorn-Reveal-Secret-List-of-Convicted-Cops.mp3?rlkey=vdursqb5zifoxeczoktm2ehss&dl=1" type="audio/mpeg">
           </audio>
         </div>
@@ -231,12 +257,12 @@
     </section>
 
     <!-- SHORTER STORIES -->
-    <section class="audio-section">
-      <h2 class="section-heading">Shorter Stories</h2>
+    <section class="audio-section" aria-labelledby="shorter-heading">
+      <h2 class="section-heading" id="shorter-heading">Shorter Stories</h2>
       <div class="grid">
         <div class="grid-item">
-          <a href="https://wnyc.org/story/262814-blog-job-seekers-with-criminal-record-face-higher-hurdles" target="_blank" class="grid-img-link">
-            <img src="https://media.wnyc.org/i/192/192/c/70/1/jobseekerline.jpg" alt="Job Seekers With Criminal Record Face Higher Hurdles" class="grid-img">
+          <a href="https://wnyc.org/story/262814-blog-job-seekers-with-criminal-record-face-higher-hurdles" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="https://media.wnyc.org/i/192/192/c/70/1/jobseekerline.jpg" alt="Job Seekers With Criminal Record Face Higher Hurdles" class="grid-img" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">WNYC</span>
@@ -244,13 +270,13 @@
             <span class="caption-role">Reporter</span>
           </div>
           <p class="grid-desc">Lax enforcement of a landmark New York law lets employers discriminate with little consequence.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <audio controls class="story-player" preload="none" aria-label="Listen: Job Seekers With Criminal Record Face Higher Hurdles">
             <source src="https://dl.dropboxusercontent.com/scl/fi/n0wfczl2y51ps9tlgc4go/news20130117_discrimination_alcorn.mp3_ywr3ahjkcgo_5cfd5d240fd9e04bf86844883a0cd0f5_7111028.mp3?rlkey=878b4agedp6x3oy7ontk1o1qx&dl=1" type="audio/mpeg">
           </audio>
         </div>
         <div class="grid-item">
-          <a href="https://www.marketplace.org/story/2014/12/23/how-bankers-muscled-ratings-agencies-tobacco-bonds" target="_blank" class="grid-img-link">
-            <img src="tobacco-square.jpg" alt="How bankers muscled ratings agencies on tobacco bonds" class="grid-img">
+          <a href="https://www.marketplace.org/story/2014/12/23/how-bankers-muscled-ratings-agencies-tobacco-bonds" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="tobacco-square.jpg" alt="How bankers muscled ratings agencies on tobacco bonds" class="grid-img" width="630" height="630" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Marketplace</span>
@@ -258,13 +284,13 @@
             <span class="caption-role">Reporter and Producer</span>
           </div>
           <p class="grid-desc">The historic legal settlement with Big Tobacco echoes the 2008 financial crisis.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <audio controls class="story-player" preload="none" aria-label="Listen: How bankers muscled ratings agencies on tobacco bonds">
             <source src="https://dl.dropboxusercontent.com/scl/fi/tr8j76zgva9t60zbg498b/mp_20141223_seg_18_64.mp3?rlkey=0g4wh0fcddh0fv5ua8ymx2jgv&dl=1" type="audio/mpeg">
           </audio>
         </div>
         <div class="grid-item">
-          <a href="https://www.marketplace.org/story/2015/01/28/how-big-banks-turn-prisons-profit-centers" target="_blank" class="grid-img-link">
-            <img src="cavaluzzi-square.jpg" alt="How big banks turn prisons into profit centers" class="grid-img">
+          <a href="https://www.marketplace.org/story/2015/01/28/how-big-banks-turn-prisons-profit-centers" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="cavaluzzi-square.jpg" alt="How big banks turn prisons into profit centers" class="grid-img" width="800" height="800" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Marketplace</span>
@@ -272,7 +298,7 @@
             <span class="caption-role">Reporter and Producer</span>
           </div>
           <p class="grid-desc">No-bid contracts let JP Morgan Chase levy fees on the formerly incarcerated.</p>
-          <audio controls style="width:100%; margin-top:0.5rem;">
+          <audio controls class="story-player" preload="none" aria-label="Listen: How big banks turn prisons into profit centers">
             <source src="https://dl.dropboxusercontent.com/scl/fi/6n4esvr2vxqlmf717ef2l/mp_20150128_seg_04_64.mp3?rlkey=skd08whr921y1e78u9njmqk48&dl=1" type="audio/mpeg">
           </audio>
         </div>
@@ -280,12 +306,12 @@
     </section>
 
     <!-- NEW SHOWS -->
-    <section class="audio-section">
-      <h2 class="section-heading">New Shows</h2>
+    <section class="audio-section" aria-labelledby="new-shows-heading">
+      <h2 class="section-heading" id="new-shows-heading">New Shows</h2>
       <div class="grid grid--4col">
         <div class="grid-item">
-          <a href="https://revealnews.org/podcast/" target="_blank" class="grid-img-link">
-            <img src="reveal1400s.jpg" alt="Reveal" class="grid-img">
+          <a href="https://revealnews.org/podcast/" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="reveal1400s.jpg" alt="Reveal" class="grid-img" width="800" height="800" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Center for Investigative Reporting</span>
@@ -293,8 +319,8 @@
           </div>
         </div>
         <div class="grid-item">
-          <a href="https://slate.com/podcasts/slate-money" target="_blank" class="grid-img-link">
-            <img src="slate_money_high.jpg" alt="Slate Money" class="grid-img">
+          <a href="https://slate.com/podcasts/slate-money" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="slate_money_high.jpg" alt="Slate Money" class="grid-img" width="800" height="800" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Slate</span>
@@ -302,8 +328,8 @@
           </div>
         </div>
         <div class="grid-item">
-          <a href="https://www.wnycstudios.org/podcasts/notetoself" target="_blank" class="grid-img-link">
-            <img src="new-tech-city-podcast.png" alt="New Tech City" class="grid-img">
+          <a href="https://www.wnycstudios.org/podcasts/notetoself" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="new-tech-city-podcast.png" alt="New Tech City" class="grid-img" width="1400" height="1400" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">WNYC</span>
@@ -311,8 +337,8 @@
           </div>
         </div>
         <div class="grid-item">
-          <a href="https://www.marketplace.org/shows/marketplace-tech" target="_blank" class="grid-img-link">
-            <img src="834af0-20250303-marketplace-tech-2000.jpg" alt="Marketplace Tech Report" class="grid-img">
+          <a href="https://www.marketplace.org/shows/marketplace-tech" target="_blank" class="grid-img-link" rel="noopener">
+            <img src="834af0-20250303-marketplace-tech-2000.jpg" alt="Marketplace Tech Report" class="grid-img" width="800" height="800" loading="lazy" decoding="async">
           </a>
           <div class="item-caption">
             <span class="caption-pub">Marketplace</span>
@@ -324,7 +350,7 @@
 
   </main>
 
-  <script src="carousel.js"></script>
+  <script src="carousel.js" defer></script>
 
 <footer class="site-footer">
   <div class="footer-inner">
@@ -332,13 +358,15 @@
     <p class="footer-sub">Receive news and surprises, infrequently.</p>
     <form class="subscribe-form" id="subscribeForm">
       <div class="subscribe-row">
-        <input type="email" id="subscribeEmail" placeholder="your@email.com" required class="subscribe-input">
+        <label class="visually-hidden" for="subscribeEmail">Email address</label>
+        <input type="email" id="subscribeEmail" name="email" autocomplete="email"
+               placeholder="your@email.com" required class="subscribe-input">
         <button type="submit" class="subscribe-btn">Subscribe</button>
       </div>
-      <p class="subscribe-msg" id="subscribeMsg" hidden></p>
+      <p class="subscribe-msg" id="subscribeMsg" role="status" hidden></p>
     </form>
   </div>
 </footer>
-<script src="subscribe.js"></script>
+<script src="forms.js" defer></script>
 </body>
 </html>
