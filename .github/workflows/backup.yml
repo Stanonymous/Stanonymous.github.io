@@ -10,4 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger backup on PythonAnywhere
-        run: curl -sf "https://stanonymous.pythonanywhere.com/run-backup?key=${{ secrets.BACKUP_KEY }}"
+        run: |
+          response=$(curl -s -w "\n%{http_code}" "https://stanonymous.pythonanywhere.com/run-backup?key=${{ secrets.BACKUP_KEY }}")
+          status="${response##*$'\n'}"
+          body="${response%$'\n'*}"
+          echo "$body"
+          echo "HTTP status: $status"
+          if [ "$status" -ge 400 ]; then
+            exit 1
+          fi
